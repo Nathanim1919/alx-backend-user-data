@@ -1,16 +1,16 @@
 # 0x00. Personal data
 `Back-end`  `Authentification`
 
-!(image)[https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/12/5c48d4f6d4dd8081eb48.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240516%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240516T175330Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0477f866369ce6586df4867069e17022f5ac023eab21619fd241158a1cddf1ba]
+![image](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/12/5c48d4f6d4dd8081eb48.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240516%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240516T175330Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0477f866369ce6586df4867069e17022f5ac023eab21619fd241158a1cddf1ba)
 
 ## Resources
 
 ### Read or watch:
 
 - [What Is PII, non-PII, and Personal Data?](https://intranet.alxswe.com/rltoken/jf71oYqiETchcVhPzQVnyg)
-- (logging documentation)[https://intranet.alxswe.com/rltoken/W2JiHD6cbJY1scJORyLqnw]
-- (bcrypt package)[https://intranet.alxswe.com/rltoken/41oaQXfzwnF1i-wT8W0vHw]
-- ( Logging to Files, Setting Levels, and Formatting)[https://intranet.alxswe.com/rltoken/XCpI9uvguxlTCsAeRCW6SA]
+- [logging documentation](https://intranet.alxswe.com/rltoken/W2JiHD6cbJY1scJORyLqnw)
+- [bcrypt package](https://intranet.alxswe.com/rltoken/41oaQXfzwnF1i-wT8W0vHw)
+- [Logging to Files, Setting Levels, and Formatting](https://intranet.alxswe.com/rltoken/XCpI9uvguxlTCsAeRCW6SA)
 
 
 ## Learning Objectives
