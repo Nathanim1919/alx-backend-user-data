@@ -30,13 +30,10 @@ def view_one_user(user_id: str = None) -> str:
         abort(404)
     # If the user_id is "me" and there is no current_user, return a 404 error
     if user_id == 'me':
-        print(request.current_user, "yeah it is me, the current_user")
         if request.current_user is None:
             abort(404)
-        else:
-            # If the user_id is "me" and there is a current_user, return the
-            # JSON representation of the current_user
-            return jsonify(request.current_user.to_json())
+        user = request.current_user
+        return jsonify(user.to_json())
     if user_id is None:
         abort(404)
     # If the user_id is not "me", retrieve the User object with the user_id
@@ -115,17 +112,7 @@ def update_user(user_id: str = None) -> str:
       - 404 if the User ID doesn't exist
       - 400 if can't update the User
     """
-    if user_id is None:
-        abort(404)
     # If the user_id is "me" and there is no current_user, return a 404 error
-    if user_id == 'me':
-        print(request.current_user, "yeah it is me, the current_user")
-        if request.current_user is None:
-            abort(404)
-        else:
-            # If the user_id is "me" and there is a current_user, return the
-            # JSON representation of the current_user
-            return jsonify(request.current_user.to_json())
     if user_id is None:
         abort(404)
     # If the user_id is not "me", retrieve the User object with the user_id
