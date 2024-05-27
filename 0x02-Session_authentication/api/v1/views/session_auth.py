@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+"""Session authentication module"""
 import os
 from flask import Flask, jsonify, request
 from models.user import User
