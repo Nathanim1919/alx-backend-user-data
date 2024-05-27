@@ -3,12 +3,13 @@
 import os
 from flask import Flask, jsonify, request
 from models.user import User
+from api.v1.views import app_views
 
 
 app = Flask(__name__)
 
 
-@app.route('/auth_session/login', methods=['POST'], strict_slashes=False)
+@app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def login():
     """POST /auth_session/login
     """
