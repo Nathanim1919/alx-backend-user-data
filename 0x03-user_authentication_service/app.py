@@ -38,17 +38,20 @@ def users() -> str:
 def login() -> str:
     """POST /sessions
     Return:
-        - JSON payload of the form containing various information.
+        - JSON payload of the form containing login info.
     """
-    email, password = request.form.get('email'), request.form.get('password')
+    # Get user credentials from form data
+    email, password = request.form.get("email"), request.form.get("password")
+    # Check if the user's credentials are valid
     if not auth.valid_login(email, password):
         abort(401)
-    # create a session id for the user
+    # Create a new session for the user
     session_id = auth.create_session(email)
-    # store the session id as a cookie with key "session_id"
+    # Construct a response with a JSON payload
     response = jsonify({"email": email, "message": "logged in"})
-    response.set_cookie('session_id', session_id)
-    # Respond with the following JSON payload:
+    # Set a cookie with the session ID on the response
+    response.set_cookie("session_id", session_id)
+    # Return the response
     return response
 
 
