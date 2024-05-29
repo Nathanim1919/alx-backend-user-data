@@ -105,6 +105,6 @@ class Auth:
             Return:
                 None
         """
-        if not user_id:
+        if user_id is None:
             return None
         self._db.update_user(user_id, sesssion_id=None)
