@@ -77,7 +77,7 @@ class Auth:
             user = self._db.find_user_by(email=email)
 
             # generate new session id
-            session_id = str(uuid4())
+            session_id = _generate_uuid()
 
             # update the user and assign the session id
             self._db.update_user(user.id, session_id=session_id)
