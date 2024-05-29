@@ -69,7 +69,7 @@ class DB:
             user = self.find_user_by(id=user_id)
         except NoResultFound:
             raise ValueError("User with id {} not found".format(user_id))
-        
+
         # Update the user's attribute
         for key, value in kwargs.items():
             if not hasattr(user, key):
