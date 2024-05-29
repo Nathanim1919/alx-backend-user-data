@@ -79,6 +79,7 @@ class DB:
         try:
             # Commit the session to the database
             self._session.commit()
+            self.__session.refresh(user)
 
         except InvalidRequestError:
             # Raise ValueError if the attribute is invalid
