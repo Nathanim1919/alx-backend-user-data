@@ -96,3 +96,4 @@ class DB:
         except InvalidRequestError:
             # Raise ValueError if the attribute is invalid
             raise ValueError("Invalid attribute")
+
