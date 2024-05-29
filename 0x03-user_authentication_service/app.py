@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+"""Main file"""
 from flask import Flask, jsonify
 
 
