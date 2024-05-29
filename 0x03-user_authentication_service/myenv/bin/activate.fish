@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/nathanim/Documents/ALX Projects/alx-backend-user-data/0x0x03-user_authentication_service/myenv"
+set -gx VIRTUAL_ENV "/home/nathanim/Documents/ALX Projects/alx-backend-user-data/0x03-user_authentication_service/myenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
