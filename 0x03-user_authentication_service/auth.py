@@ -107,9 +107,4 @@ class Auth:
         """
         if not user_id:
             return None
-        try:
-            self._db.update_user(user_id, sesssion_id=None)
-        except NoResultFound:
-            return None
-        except InvalidRequestError:
-            return None
+        self._db.update_user(user_id, sesssion_id=None)
