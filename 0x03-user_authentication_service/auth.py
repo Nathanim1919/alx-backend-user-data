@@ -63,3 +63,28 @@ class Auth:
             return False
         except InvalidRequestError:
             return False
+
+    def create_session(self, email: str) -> str:
+        """Get Session Id
+            Args:
+                email: user email to find user and
+                 assing the created sessionid
+            Return:
+                session_id as String
+        """
+        try:
+            # find user by email
+            user = self._db.find_user_by(email=email)
+
+            # generate new session id
+            session_id = str(uuid4())
+
+            # update the user and assign the session id
+            self._db.update_user(user.id, session_id=session_id)
+
+            # return the created session id
+            return session_id
+        except NoResultFound:
+            return None
+        except InvalidRequestError:
+            return None
