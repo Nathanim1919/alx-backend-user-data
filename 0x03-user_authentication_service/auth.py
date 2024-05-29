@@ -5,6 +5,7 @@
 import bcrypt
 from db import DB
 from user import User
+from uuid import uuid4
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.exc import InvalidRequestError
 
@@ -56,3 +57,8 @@ class Auth:
             return False
         except InvalidRequestError:
             return False
+
+    def _generate_uuid(self) -> str:
+        """Generate a UUID
+        """
+        return str(uuid4())
