@@ -36,17 +36,21 @@ def users() -> str:
 
 @app.route('/sessions', methods=['POST'], strict_slashes=False)
 def login() -> str:
+    """POST /sessions
+    Return:
+        - JSON payload of the form containing various information.
+    """
     email, password = request.form.get('email'), request.form.get('password')
-    if (auth.valid_login(email, password)):
-        session_id = auth.create_session(email)
-        # store the session id as a cookie with key "session_id"
-        response = jsonify({"email": email, "message": "logged in"})
-        response.set_cookie('session_id', session_id)
-        # Respond with the following JSON payload:
-        # {"email": "<registered email>", "message": "logged in"}
-        return response
-    else:
+    if not auth.valid_login(email, password):
         abort(401)
+    # create a session id for the user
+    session_id = auth.create_session(email)
+    # store the session id as a cookie with key "session_id"
+    response = jsonify({"email": email, "message": "logged in"})
+    response.set_cookie('session_id', session_id)
+    # Respond with the following JSON payload:
+    # {"email": "<registered email>", "message": "logged in"}
+    return response
 
 
 if __name__ == '__main__':
