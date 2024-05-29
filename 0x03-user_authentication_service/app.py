@@ -34,7 +34,7 @@ def users() -> str:
         return jsonify({"message": "email already registered"}), 400
 
 
-@app.route('/sessions', methods=['POST'], strict_slashes=False)
+@app.route("/sessions", methods=["POST"], strict_slashes=False)
 def login() -> str:
     """POST /sessions
     Return:
@@ -49,7 +49,6 @@ def login() -> str:
     response = jsonify({"email": email, "message": "logged in"})
     response.set_cookie('session_id', session_id)
     # Respond with the following JSON payload:
-    # {"email": "<registered email>", "message": "logged in"}
     return response
 
 
