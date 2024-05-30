@@ -27,7 +27,7 @@ def users() -> str:
         auth.register_user(email, password)
         # Respond with the following JSON payload:
         # {"email": "<registered email>", "message": "user created"}
-        return jsonify({"email": email, "message": "user created"})
+        return jsonify({"email": email, "message": "user created"}), 200
     # If the user is already registered, catch the exception and return a
     # JSON payload of the form: {"message": "email already registered"}
     # and return a 400 status code
@@ -49,7 +49,7 @@ def login() -> str:
     # Create a new session for the user
     session_id = auth.create_session(email)
     # Construct a response with a JSON payload
-    response = jsonify({"email": email, "message": "logged in"})
+    response = jsonify({"email": email, "message": "logged in"}), 200
     # Set a cookie with the session ID on the response
     response.set_cookie("session_id", session_id)
     # Return the response
@@ -76,7 +76,7 @@ def profile() -> str:
     """
     session_id = request.cookies.get("session_id")
     user = auth.get_user_from_session_id(session_id)
-    if not user:
+    if user is None:
         abort(403)
     return jsonify({"email": user.email}), 200
 
@@ -87,7 +87,7 @@ def get_reset_password_token():
     email = request.form.get("email")
     try:
         reset_token = auth.get_reset_password_token(email)
-        return jsonify({"email": email, "reset_token": reset_token})
+        return jsonify({"email": email, "reset_token": reset_token}), 200
     except ValueError:
         abort(403)
 
@@ -101,7 +101,7 @@ def update_password() -> str:
 
     try:
         auth.update_password(reset_token, new_password)
-        return jsonify({"email": email, "message": "Password updated"})
+        return jsonify({"email": email, "message": "Password updated"}),200
     except InvalidRequestError:
         abort(403)
 
