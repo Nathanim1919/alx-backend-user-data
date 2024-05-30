@@ -110,11 +110,34 @@ class Auth:
         self._db.update_user(user_id, sesssion_id=None)
 
     def get_reset_password_token(self, email: str) -> str:
+        """Reset password token
+            Args:
+                email: user email
+            Return:
+                string token
+        """
         try:
             user = self._db.find_user_by(email=email)
             reset_token = _generate_uuid()
             self._db.update_user(user.id, reset_token=reset_token)
             return reset_token
+        except NoResultFound:
+            raise ValueError
+        except InvalidRequestError:
+            raise ValueError
+
+    def update_password(self, reset_token: str, password: str) -> None:
+        """Update Password
+            Args:
+                reset_token: reset password token
+                password: new password
+            Return:
+                None
+        """
+        try:
+            user = self._db.find_user_by(reset_token=reset_token)
+            self._db.update_user(user.id,
+                                 hashed_password=_hash_password(password))
         except NoResultFound:
             raise ValueError
         except InvalidRequestError:
